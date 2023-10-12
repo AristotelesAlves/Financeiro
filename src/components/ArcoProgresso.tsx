@@ -1,26 +1,25 @@
 interface IArcoProgresso {
-    porcentagem: int;
+    porcentagem: number;
 }
 
 export function ArcoProgresso(props: IArcoProgresso){
   
-    // const [raio, setRaio] = useState(40)
-    // const [cx, setCx] = useState(100)
-    // const [cy, setCy] = useState(75)
+    
     
     const result = ((2 * 3.1416 * 80) / 2) * (1 - props.porcentagem / 100)
 
     return(
         <svg width="300" height="75" xmlns="http://www.w3.org/2000/svg">
                 
-          {/* <circle
+          <circle
             cx="150"
-            cy="80"
-            r="70"
+            cy="90"
+            r="80"
             fill="none"
-            stroke="blue"
-            stroke-width="10"
-          /> */}
+            stroke="#1D1D1B"
+            stroke-width="12"
+            className="rounded-lg"
+          />
 
           <circle
             cx="150"

@@ -1,4 +1,4 @@
-
+import { ArrowLineDownRight, ArrowLineUpRight, CreditCard  } from "phosphor-react"
 interface ICardProps {
     type: string
 }
@@ -8,8 +8,8 @@ export function Cartao(props:ICardProps){
     
 
     return (
-        <div className="flex flex-col gap-2">
-            <div className="w-[350px] px-5 py-3 bg-slate-400 rounded-lg flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-white">
+            <div className="w-[350px] px-5 py-3 bg-blackCustum02 rounded-lg flex flex-col gap-2 drop-shadow-xl">
                 <div>
                     <p>
                         {props.type != 'credit'? 'Saldo': 'Fatura'}
@@ -41,8 +41,10 @@ export function Cartao(props:ICardProps){
                 {
                     props.type != 'credit'?
                     <div className="flex justify-between gap-2">
-                        <div className="flex gap-2 px-5 w-full py-2 rounded-lg bg-red-500">
-                            <div> - </div>
+                        <div className="flex items-center gap-2 px-2 w-full py-2 rounded-lg bg-blackCustum02">
+                            <div className="p-2 bg-green-800 rounded-lg mt-1"> 
+                                <ArrowLineUpRight  size={24}/>
+                            </div>
                             <div>
                                 <p>
                                     Receitas
@@ -52,8 +54,10 @@ export function Cartao(props:ICardProps){
                                 </p>
                             </div>
                         </div>
-                        <div className=" flex gap-2 w-full px-5 py-2 rounded-lg bg-red-500">
-                            <div> + </div>
+                        <div className="flex items-center gap-2 px-2 w-full py-2 rounded-lg bg-blackCustum02">
+                            <div className="p-2 bg-red-800 rounded-lg mt-1"> 
+                                <ArrowLineDownRight   size={24}/>
+                            </div>
                             <div>
                                 <p>
                                     Despesas
@@ -65,8 +69,10 @@ export function Cartao(props:ICardProps){
                         </div>
                     </div>
                     :
-                    <div className="w-full flex px-5 py-2 bg-red-500 rounded-lg">
-                        <div> - </div>
+                    <div className="flex items-center gap-2 px-2 w-full py-2 rounded-lg bg-blackCustum02">
+                            <div className="p-2 bg-red-800 rounded-lg mt-1"> 
+                                <CreditCard   size={24}/>
+                            </div>
                         <div className="flex flex-col w-full">
                             <div className="flex justify-between w-[100%]">
                                 <p>
