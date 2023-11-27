@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors:{
-        blackCustum01:"#1D1D1B",
-        blackCustum02:"#242526",
-        blackCustum03:"#3A3B3C",
+        blackCustum01:"#17181d",
+        blackCustum02:"#292c35",
+        blackCustum03:"#fcd9b",
 
       }
     },
