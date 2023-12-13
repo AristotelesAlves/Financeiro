@@ -10,6 +10,7 @@ export default {
         blackCustum01:"#17181d",
         blackCustum02:"#292c35",
         blackCustum03:"#fcd9b",
+        whitecustom:"#9E9E9E"
 
       }
     },
