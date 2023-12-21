@@ -26,7 +26,7 @@ export function Grafico({
   valores,
   titulo,
 }: GraficoProps) {
-  const [chartData, setChartData] = useState({
+  const [chartData] = useState({
     options: {
       chart: {
         id: "stacked-bar",
