@@ -21,8 +21,6 @@ export function Grafico({
   dataOne,
   dataNameTwo,
   dataTwo,
-  dataNameThree,
-  dataThree,
   pilha,
   grid,
   valores,
