@@ -1,10 +1,6 @@
 import logo from '../../assets/logo.png'
 
-interface SliderBarProps{
-    active: string;
-}
-
-export function SlideBar(props: SliderBarProps){
+export function SlideBar(){
     return(
         <div className="w-[20%] h-screen bg-blackCustum01 p-3 text-white drop-shadow-xl border-r border-blackCustum02">
             <ul className='flex flex-col gap-1'>
@@ -18,7 +14,7 @@ export function SlideBar(props: SliderBarProps){
                     </h1>
                 </div>
                 <li className=" flex items-center gap-1 w-full rounded-md hover:bg-blackCustum02 px-2 py-1">
-                    <a href="">
+                    <a href="/">
                         Dashboard
                     </a>
                 </li>
@@ -43,12 +39,12 @@ export function SlideBar(props: SliderBarProps){
                     </a>
                 </li>
                 <li className=" flex items-center gap-1 w-full rounded-md hover:bg-blackCustum02 px-2 py-1">
-                    <a href="">
+                    <a href="/credito">
                         Cartão de credito
                     </a>
                 </li>
                 <li className=" flex items-center gap-1 w-full rounded-md hover:bg-blackCustum02 px-2 py-1">
-                    <a href="">
+                    <a href="/Conta-bancaria">
                         Conta bancaria
                     </a>
                 </li>

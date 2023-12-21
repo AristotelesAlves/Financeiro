@@ -11,14 +11,14 @@
   },
   "dependencies": {
     "apexcharts": "^3.44.2",
-    "chart.js": "^4.4.1",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.1",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-number-format": "^5.3.1",
-    "react-progressbar": "^15.4.1"
+    "react-progressbar": "^15.4.1",
+    "react-router-dom": "^6.21.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

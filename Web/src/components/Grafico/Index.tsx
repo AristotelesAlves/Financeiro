@@ -1,52 +1,139 @@
-  import React, { useState, useEffect } from "react";
-  import Chart from "react-apexcharts";
+import { useState } from "react";
+import Chart from "react-apexcharts";
 
-  const Grafico = () => {
-    const [chartData, setChartData] = useState({
-      options: {
-        chart: {
-          id: "stacked-bar", 
-          width: '100%',
+interface GraficoProps {
+  titulo: string;
+  categories: Array<string>;
+  dataNameOne: string;
+  dataOne: Array<number>;
+  dataNameTwo: string;
+  dataTwo: Array<number>;
+  dataNameThree: string;
+  dataThree: Array<number>; // Adicionando um terceiro conjunto de dados para a linha
+  pilha: boolean;
+  grid: boolean;
+  valores: boolean;
+}
+
+export function Grafico({
+  categories,
+  dataNameOne,
+  dataOne,
+  dataNameTwo,
+  dataTwo,
+  dataNameThree,
+  dataThree,
+  pilha,
+  grid,
+  valores,
+  titulo,
+}: GraficoProps) {
+  const [chartData, setChartData] = useState({
+    options: {
+      chart: {
+        id: "stacked-bar",
+        width: "100%",
+        toolbar: {
+          show: false,
         },
-        xaxis: {
-          categories: ["01/2023", "02/2024", "03/2024", "04/2024", "05/2024", "06/2024", "07/2024", "08/2024","09/2024","10/2024","11/2024","12/2024"],
-        },
-        plotOptions: {
-          bar: {
-            horizontal: false,
-          },
-        },
-        colors: ['#FF5733', '#4CAF50'], // Cor para Despesas e Receitas, respectivamente
-        yaxis: {
-          labels: {
-            formatter: function (value : number) {
-              return 'R$ ' + value;
-            }
-          }
+        stacked: pilha,
+      },
+      stroke: {
+        width: [0, 2, 5],
+        curve: 'smooth'
+      },
+      title: {
+        text: titulo,
+        align: "left",
+        position: "top",
+        margin: 0,
+        offsetY: 30,
+        style: {
+          fontSize: "18px",
+          fontWeight: "bold",
+          color: "#FFFFFF",
         },
       },
-      series: [
+      xaxis: {
+        categories: categories,
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      labels: {
+        rotate: -45,
+      },
+      grid: {
+        show: grid,
+        borderColor: "#292c35", // Cor da borda da grade
+        strokeDashArray: 6, // Tamanho do traço
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "right",
+        fontSize: "14px",
+        offsetX: 120,
+        offsetY: -10,
+        itemMargin: {
+          horizontal: 5,
+        },
+        markers: {
+          radius: 12, // Raio dos marcadores (ajuste conforme necessário)
+        },
+        text: {
+          color: "#fff",
+        },
+      },
+      colors: ["#4CAF50","#FF5733", "#FEB019"], // Adicionando uma nova cor para a linha
+      yaxis: [
         {
-          name: "Receitas",
-          data: [1000.00, 2000, 2500, 3000, 3500, 4000, 4500, 5000],
+          labels: {
+            show: valores,
+            color: "#FFFFF",
+            formatter: function (value: number) {
+              return "R$ " + value.toFixed(2);
+            },
+          },
         },
         {
-          name: "Despesas",
-          data: [3000, 4000, 4500, 5000, 4900, 6000, 7000, 5000],
+          show: valores,
+          opposite: true,
+          labels: {
+            formatter: function (value: number) {
+              return "R$ " + value.toFixed(2);
+            },
+          },
         },
-        
       ],
-    });
+    },
+    series: [
+      {
+        name: dataNameOne,
+        data: dataOne,
+        type: "bar",
+      },
+      {
+        name: dataNameTwo,
+        data: dataTwo,
+        type: "bar",
+      },
+      {
+        name: 'Orçamento',
+        data: dataThree, // Adicionando os dados para a nova série (linha)
+        type: "line", // Especificando o tipo de gráfico como linha
+      },
+    ],
+  });
 
-    return (
-            <Chart
-              options={chartData.options}
-              series={chartData.series}
-              type="bar"
-              width="100%"
-              height="100%"
-            />
-    );
-  };
+  return (
+    <Chart
+      options={chartData.options}
+      series={chartData.series}
+      type="line"
+      width="100%"
+      height="100%"
+    />
+  );
+}
 
-  export default Grafico;
+export default Grafico;
