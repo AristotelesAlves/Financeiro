@@ -2,13 +2,13 @@ import Chart from "react-apexcharts";
 
 interface GraficoProps {
   titulo: string;
-  categories: Array<string>;
+  categories: string[];
   dataNameOne: string;
-  dataOne: Array<number>;
+  dataOne: number[];
   dataNameTwo: string;
-  dataTwo: Array<number>;
+  dataTwo: number[];
   dataNameThree: string;
-  dataThree: Array<number>; // Adicionando um terceiro conjunto de dados para a linha
+  dataThree: number[]; // Adicionando um terceiro conjunto de dados para a linha
   pilha: boolean;
   grid: boolean;
   valores: boolean;
@@ -26,7 +26,7 @@ export function Grafico({
   valores,
   titulo,
 }: GraficoProps) {
-  const chartData= {
+  const chartData = {
     options: {
       chart: {
         id: "stacked-bar",
@@ -82,7 +82,7 @@ export function Grafico({
           color: "#fff",
         },
       },
-      colors: ["#4CAF50","#FF5733", "#FEB019"], // Adicionando uma nova cor para a linha
+      colors: ["#4CAF50", "#FF5733", "#FEB019"], // Adicionando uma nova cor para a linha
       yaxis: [
         {
           labels: {
