@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Chart from "react-apexcharts";
 
 interface GraficoProps {
@@ -21,12 +20,13 @@ export function Grafico({
   dataOne,
   dataNameTwo,
   dataTwo,
+  dataThree,
   pilha,
   grid,
   valores,
   titulo,
 }: GraficoProps) {
-  const [chartData] = useState({
+  const chartData= {
     options: {
       chart: {
         id: "stacked-bar",
@@ -121,7 +121,7 @@ export function Grafico({
         type: "line", // Especificando o tipo de gráfico como linha
       },
     ],
-  });
+  };
 
   return (
     <Chart
