@@ -125,6 +125,8 @@ export function Grafico({
 
   return (
     <Chart
+      /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+      // @ts-ignore
       options={chartData.options}
       series={chartData.series}
       type="line"
