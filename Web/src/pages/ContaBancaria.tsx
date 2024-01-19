@@ -1,6 +1,5 @@
 import { ArrowUp } from "phosphor-react";
 import { Tabela } from "../components/Tabela/Index";
-import { CategoriaProgresso } from "../components/CategoriaProgresso";
 
 export function ContaBancaria(){
     return(
@@ -24,13 +23,6 @@ export function ContaBancaria(){
                     <p>
                         26/24
                     </p>
-                </div>
-                <div className="h-full w-full p-5 rounded-lg drop-shadow-lg flex flex-col overflow-y-scroll bg-blackCustum01 text-white gap-2">
-                    <h1 className="font-bold text-xl">
-                        Resumo por categoria
-                    </h1>
-                    <CategoriaProgresso porcentage={50} title="Pix" value={250}/>
-                    <CategoriaProgresso porcentage={50} title="Despesas" value={250}/> 
                 </div>
             </div>
             <div className="w-full h-full flex-1">
