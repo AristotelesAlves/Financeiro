@@ -16,7 +16,7 @@ export function  NavFooter(){
                 tabBarStyle:{
                     position: "absolute",
                     bottom:20,
-                    borderRadius:15,
+                    borderRadius:25,
                     left: 70,
                     right: 70,
                     height:60,
@@ -30,12 +30,15 @@ export function  NavFooter(){
               component={Home} 
               options={{ 
                 headerShown: false,
-                tabBarIcon: () => <View className=" bg-zinc-400 bg-opacity-25  h-12 w-12 bg-opacity-5 items-center justify-center rounded-full">
-                        <Plus size={25} weight="bold" color="#ffff"/>
+                tabBarIcon: () => <View className=" bg-zinc-100 h-12 w-12 bg-opacity-5 items-center justify-center rounded-full">
+                        <Plus size={25} weight="bold"/>
                     </View> 
                 }}
             />
-            <Tab.Screen name="Opção" component={Configuracao} options={{ headerShown: false,  tabBarIcon: () => <Gear color="#ffff" size={25}/> }} />
+            <Tab.Screen 
+              name="Opção" 
+              component={Configuracao} 
+              options={{ headerShown: false,  tabBarIcon: () => <Gear color="#ffff" size={25}/> }} />
         </Tab.Navigator>
     )
 }
