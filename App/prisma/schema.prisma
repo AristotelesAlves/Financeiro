@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Expenses {
+  id Int @id @default(autoincrement())
+  description String
+  formPayment_id Int
+  formPayment FormPayment @relation(fields: [formPayment_id], references: [id])
+  category_id Int?
+  category Category? @relation(fields: [category_id], references: [id])
+  bank_id Int
+  bank Bank @relation(fields: [bank_id], references: [id])
+  value Float
+  created_at DateTime
+  @@map("expense")
+}
+
+model Bank {
+  id Int @id @default(autoincrement())
+  name String
+  value Int
+  expense Expenses[]
+}
+
+model Card {
+  id Int @id @default(autoincrement())
+  name String
+  card_expense CardExpense[]
+  invoice Invoice[] 
+  @@map("card")
+}
+
+model Invoice {
+  id Int @id @default(autoincrement())
+  month DateTime
+  opening_date DateTime
+  closed_date DateTime
+  value Int
+  status Boolean
+  invoice_id Int
+  card_expense CardExpense[]
+  invoice Card @relation(fields: [invoice_id], references: [id]) 
+  @@map("invoice")
+}
+
+model CardExpense {
+  id Int @id @default(autoincrement())
+  description String
+  portion Int
+  portion_value Int
+  status Boolean
+  created_at DateTime
+  card_id Int
+  card Card @relation(fields: [card_id], references: [id])
+  invoice Invoice @relation(fields: [invoice_id], references: [id])
+  invoice_id Int
+  @@map("cardexpense")
+}
+
+model FormPayment {
+  id Int @id @default(autoincrement())
+  name String
+  expenses Expenses[]
+  @@map("formpayment")
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  name String
+  expenses Expenses[]
+  created_at DateTime
+  @@map("category")
+}
