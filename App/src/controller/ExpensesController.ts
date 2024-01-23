@@ -2,23 +2,28 @@ import { Request, Response } from "express";
 import { ExpensesService } from "../service/ExpensesService";
 
 export class ExpensesController{
-    // async show_one_expense(req: Request,res: Response){
-    //     try {
-    //         const {id} = req.params;
-    //         const expense_id = Number(id);
-    //         const service = new ExpensesService();
-    //         const result = await service.show_one_expense(expense_id);
-    //         res.json(result);
-    //     } catch (error) {
-    //         console.error(error);
-    //         res.status(500).json({ error: "Erro interno do servidor" });
-    //     }
-    // }
+    async show_one_expense(req: Request,res: Response){
+        try {
+            const {id} = req.params;
+            const expense_id = Number(id);
+            const service = new ExpensesService();
+            const result = await service.show_one_expense(expense_id);
+            res.json(result);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: "Erro interno do servidor" });
+        }
+    }
 
     async list_expenses(req: Request, res: Response) {
-        const service = new ExpensesService();
-        const result = await service.list_expenses();
-        res.json(result);
+        try {
+            const service = new ExpensesService();
+            const result = await service.list_expenses();
+            res.json(result);
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({ error: "Erro interno do servidor" });
+        }
     }
 
     async sum_expense_Month(req: Request, res: Response) {

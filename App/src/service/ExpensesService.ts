@@ -1,4 +1,4 @@
-import { addDays, endOfMonth, setDate, startOfMonth } from "date-fns";
+import { addDays, endOfMonth, setDate, startOfMonth, subDays } from "date-fns";
 import { prismaClient } from "../prisma";
 
 interface IExpense{
@@ -35,7 +35,7 @@ export class ExpensesService{
     async list_expenses(){
         try {
             const list = await prismaClient.expenses.findMany()
-            return list
+            return ['Lista de despesas', list]
         } catch (error) {
             return 'Error ao carregar as despesas'
         }
@@ -43,23 +43,14 @@ export class ExpensesService{
 
     async sum_expense_Month(month: number, year: number) {
         try {
-            const data = new Date(year, month);
-            const startDate = startOfMonth(data)
-            const endDate = endOfMonth(setDate(data, 0));
-
-            const datas = [];
-            let diaAtual = startDate;
-        
-            while (diaAtual <= endDate) {
-              datas.push(diaAtual);
-              diaAtual = addDays(diaAtual, 1);
-            }
+            const date = endOfMonth(new Date(year, month, 1));
+            const endDate = subDays(date, 1)
       
           const expenses = await prismaClient.expenses.findMany({
             where: {
-                created_at:{
-                    gte: startDate,
-                    lte: endDate
+                created_at: { 
+                    gt: new Date(year, month, 0),
+                    lte: new Date(endDate)
                 }
             }
           })
@@ -70,7 +61,14 @@ export class ExpensesService{
             sum += expenses[i].value;
           }
       
-          return ['Total', sum, expenses, startDate, endDate, datas];
+          return [
+            {
+                'Mês': endDate.getMonth() + 1,
+                'Total de despesa':sum,
+            }
+            , expenses
+        ];
+          
         } catch (error) {
           console.error(error);
           return 'Erro ao carregar a soma das despesas do mês';
@@ -79,7 +77,7 @@ export class ExpensesService{
 
     async new_expense({ bank_id, category_id, value, description, formPayment_id }: IExpense) {
         try {
-            const newExpense = prismaClient.expenses.create({
+            const newExpense = await prismaClient.expenses.create({
                 data: {
                     description,
                     value,
@@ -131,7 +129,7 @@ export class ExpensesService{
                 return 'Conta bancária não encontrada';
             }
       
-          return 'Despesa criada com sucesso';
+          return ['Despesa criada com sucesso', newExpense];
         } catch (error) {
           console.error(error);
           return 'Erro ao criar despesa';
