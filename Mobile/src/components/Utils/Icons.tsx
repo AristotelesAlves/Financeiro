@@ -1,4 +1,4 @@
-import { Bus, Coffee, Coins, CreditCard, GameController, Hamburger, HandCoins, MopedFront, Receipt, SealWarning, Train } from "phosphor-react-native"
+import { Bus, Coffee, Coins, CreditCard, GameController, Hamburger, HandCoins, MopedFront, Receipt, SealWarning, Storefront, Target, Train } from "phosphor-react-native"
 
 interface Iicons{
     [key:string] : React.ReactNode
@@ -17,5 +17,9 @@ export const Icons : Iicons = {
     Cafe: <Coffee size={35}/>,
     Salario: <Coins size={35}/>,
     Gorjeta: <HandCoins size={35}/>,
-    Despesa: <Receipt size={35}/>,
+    Despesagit : <Receipt size={35}/>,
+    Mercado : <Storefront size={35}/>,
+    Cartao : <CreditCard size={35}/>,
+    Metas : <Target size={35}/>,
+    
 }

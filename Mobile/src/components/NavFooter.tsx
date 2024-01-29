@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Home from '../screen/Home';
 import { Carrinho } from "../screen/Carrinho";
 import { Configuracao } from "../screen/Configuracao";
-import { Basket, Gear, Plus } from "phosphor-react-native";
+import { Basket, Gear, House, Plus } from "phosphor-react-native";
 
 const Tab = createBottomTabNavigator()
 
@@ -15,10 +15,7 @@ export function  NavFooter(){
                 tabBarShowLabel:false,
                 tabBarStyle:{
                     position: "absolute",
-                    bottom:20,
-                    borderRadius:25,
-                    left: 70,
-                    right: 70,
+                    bottom:0,
                     height:60,
                     backgroundColor:'#2E2F33',
                 },
@@ -30,9 +27,7 @@ export function  NavFooter(){
               component={Home} 
               options={{ 
                 headerShown: false,
-                tabBarIcon: () => <View className=" bg-zinc-100 h-12 w-12 bg-opacity-5 items-center justify-center rounded-full">
-                        <Plus size={25} weight="bold"/>
-                    </View> 
+                tabBarIcon: () => <House size={25} color="#ffff"/>
                 }}
             />
             <Tab.Screen 

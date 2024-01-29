@@ -12,7 +12,7 @@ interface Iprops{
 
 export function CardMovi({description,expense,icon,type,value}: Iprops){
     return (
-        <View className="flex-row w-full items-center border-b py-2 border-zinc-300">
+        <View className="flex-row w-full items-center p-2 bg-blackWeight3">
             <View className={`p-2 ${expense === true ? 'bg-red-200' : 'bg-green-200'} rounded-xl`}>
                 {Icons[icon]}
             </View>
