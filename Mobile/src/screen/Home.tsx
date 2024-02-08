@@ -7,7 +7,7 @@ import { CardIcon } from '../components/CardIcon';
 
 export default function Home() {
   return (
-    <View className="flex-1 bg-violet-700 pt-10 relative w-full">
+    <ScrollView className="flex-1 bg-violet-700 pt-10 relative w-full">
       <View className='px-7 pb-9 w-full relative'>
         <View className='w-full py-3 pb-5 justify-center items-center'>
           <Text className='text-zinc-200 text-base font-semibold'>
@@ -50,7 +50,7 @@ export default function Home() {
             <CardIcon icons='Metas' titulo='Metas'/>
             <CardIcon icons='' titulo='Resumo'/>
           </View>
-          <ScrollView className='h-full'>
+          <View className='px-1 pb-20'>
             <CardMovi description='Café da manhã' expense icon='Cafe' type='Pix' value={8.23} />
             <CardMovi description='Onibus' expense icon='Onibus' type='Dinheiro' value={4.75} />
             <CardMovi description='Trem' expense icon='Trem' type='Dinheiro' value={1.00} />
@@ -63,8 +63,8 @@ export default function Home() {
             <CardMovi description='Salario' expense={false} icon='Salario' type='Pix' value={1430} />
             <CardMovi description='Gorjeta da veia' expense={false} icon='Gorjeta' type='Pix' value={200.00}/>
             <View className='h-20 w-full'></View>
-        </ScrollView>
+          </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }

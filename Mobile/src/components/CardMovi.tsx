@@ -12,13 +12,13 @@ interface Iprops{
 
 export function CardMovi({description,expense,icon,type,value}: Iprops){
     return (
-        <View className="flex-row w-full items-center p-2 bg-blackWeight3">
+        <View className="flex-row w-full items-center p-3 bg-blackWeight3 my-1 rounded-md shadow-lg">
             <View className={`p-2 ${expense === true ? 'bg-red-200' : 'bg-green-200'} rounded-xl`}>
                 {Icons[icon]}
             </View>
             <View className="flex-row flex-1 h-fit justify-between ml-2">
                 <View className="">
-                    <Text className="font-semibold text-base">
+                    <Text className="font-semibold text-base text-white">
                         {description}
                     </Text>
                     <Text className="font-semibold text-zinc-500 -mt-1">
