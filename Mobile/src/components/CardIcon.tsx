@@ -11,7 +11,7 @@ export function CardIcon(props: ICardIcons){
     return (
         <View className='items-center w-fit px-1 py-2 rounded-lg bg-gray-200 my-1 mx-2'>
             {Icons[props.icons]}
-            <Text className='w-16 text-center text-xs text-black'>
+            <Text className='w-16 text-center text-[10px] text-black'>
               {props.titulo}
             </Text>
         </View>
