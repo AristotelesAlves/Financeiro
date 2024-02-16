@@ -26,7 +26,7 @@ export function CardMovi({description,expense,icon,type,value}: Iprops){
                     </Text>
                 </View>
                 <View>
-                    <Text className={`${expense? 'text-red-500': 'text-green-500'}`}>
+                    <Text className={`${expense? 'text-red-600': 'text-green-600'}`}>
                        {expense? '-' : '+'} R$ {value.toString()}
                     </Text>
                 </View>

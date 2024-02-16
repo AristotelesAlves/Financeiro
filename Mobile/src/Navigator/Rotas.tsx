@@ -11,7 +11,21 @@ export default function Rotas() {
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name="PaginaInicial" component={Home} options={{headerShown: false}}/>
-                <Stack.Screen name="Lancamento" component={LancamentoDespesa} />
+                <Stack.Screen 
+                  name="Lancamento" 
+                  component={LancamentoDespesa} 
+                  options={
+                    {
+                        headerTintColor: 'white', 
+                        headerTitle: 'Lançamento despesa',
+                        headerStyle: {
+                            backgroundColor: 'rgb(239 68 68)',
+                            shadowOpacity: 0
+                            
+                        }
+                    }
+                } 
+            />
             </Stack.Navigator>
         </NavigationContainer>
     );

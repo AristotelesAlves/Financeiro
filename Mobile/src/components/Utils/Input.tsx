@@ -7,6 +7,10 @@ interface Iinput{
 
 export default function Input({onChange, value}: Iinput){
     return (
-        <TextInput onChange={(e) => onChange} value={value} className="w-full"/>
+        <TextInput 
+          keyboardType="numeric"
+          onChangeText={onChange} 
+          value={value} 
+          className="w-full border-b"/>
     )
 }
