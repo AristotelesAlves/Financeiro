@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LancamentoDespesa from '../screen/Lancamento/LancamentoDespesa';
 import Home from '../screen/Home';
 import { NavigationContainer } from '@react-navigation/native';
+import { Test } from '../screen/Test';
 
 const Stack = createStackNavigator();
 
@@ -24,8 +25,10 @@ export default function Rotas() {
                             
                         }
                     }
-                } 
-            />
+                }/>
+                <Stack.Screen name="test" component={Test}/>
+
+            
             </Stack.Navigator>
         </NavigationContainer>
     );

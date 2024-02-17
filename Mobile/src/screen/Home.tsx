@@ -34,7 +34,7 @@ export default function Home() {
                 Despesa
               </Text>
             </TouchableOpacity>
-            <TouchableOpacity >
+            <TouchableOpacity onPress={() => navegacao.navigate('test' as never)}>
               <Text className='text-2xl'>
                 Receita
               </Text>
